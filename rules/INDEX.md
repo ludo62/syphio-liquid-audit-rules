@@ -39,33 +39,33 @@ Click any rule ID to read its full specification with Detection Logic, Anti-Patt
 
 ## C1 — Liquid: Syntax & Deprecated Tags `25 rules`
 
-| ID                             | Rule                                                                              | Severity    |
-| ------------------------------ | --------------------------------------------------------------------------------- | ----------- |
-| [LIQ-001](./liquid/LIQ-001.md) | `{% include %}` deprecated — replace with `{% render %}`                          | 🟠 HIGH     |
-| [LIQ-002](./liquid/LIQ-002.md) | `img_url` filter obsolete — replace with `image_url`                              | 🟠 HIGH     |
-| [LIQ-003](./liquid/LIQ-003.md) | `= 0` instead of `== 0` in `{% if %}` — always evaluates true                     | 🔴 CRITICAL |
-| [LIQ-004](./liquid/LIQ-004.md) | Misspelled closing tag `{% endiff %}` `{% end for %}`                             | 🔴 CRITICAL |
-| [LIQ-005](./liquid/LIQ-005.md) | `{% assign %}` inside `{% for %}` loop                                            | 🟡 MEDIUM   |
-| [LIQ-006](./liquid/LIQ-006.md) | `{% capture %}` without `{% endcapture %}`                                        | 🔴 CRITICAL |
-| [LIQ-007](./liquid/LIQ-007.md) | Filter chain depth > 6 levels                                                     | 🟡 MEDIUM   |
-| [LIQ-008](./liquid/LIQ-008.md) | `{{ content_for_header }}` missing or duplicated in layout                        | 🔴 CRITICAL |
-| [LIQ-009](./liquid/LIQ-009.md) | `{{ content_for_layout }}` missing in checkout.liquid                             | 🔴 CRITICAL |
-| [LIQ-010](./liquid/LIQ-010.md) | `{% layout none %}` without explicit `<!DOCTYPE html>`                            | 🟡 MEDIUM   |
-| [LIQ-011](./liquid/LIQ-011.md) | `{% paginate %}` without `{% endpaginate %}`                                      | 🟠 HIGH     |
-| [LIQ-012](./liquid/LIQ-012.md) | `{% form %}` without `{% endform %}`                                              | 🟠 HIGH     |
-| [LIQ-013](./liquid/LIQ-013.md) | `\| upcase` / `\| downcase` on non-string object                                  | 🟡 MEDIUM   |
-| [LIQ-014](./liquid/LIQ-014.md) | `\| strip_html` on already plain-text field                                       | 🟢 LOW      |
-| [LIQ-015](./liquid/LIQ-015.md) | `{% render %}` called with undefined variable as parameter                        | 🟠 HIGH     |
-| [LIQ-016](./liquid/LIQ-016.md) | Nested `{% unless %}` creating cognitive confusion                                | 🟢 LOW      |
-| [LIQ-017](./liquid/LIQ-017.md) | `{% tablerow %}` without `{% endtablerow %}`                                      | 🟠 HIGH     |
-| [LIQ-018](./liquid/LIQ-018.md) | Liquid comment containing `-->` or `</` sequences                                 | 🟡 MEDIUM   |
-| [LIQ-019](./liquid/LIQ-019.md) | `\| escape` inside `<script>` tag instead of `\| json`                            | 🔴 CRITICAL |
-| [LIQ-020](./liquid/LIQ-020.md) | `'{{ value \| json }}'` — json wrapped in extra quotes                            | 🟠 HIGH     |
-| [LIQ-021](./liquid/LIQ-021.md) | Deprecated `theme` Liquid object used                                             | 🟠 HIGH     |
-| [LIQ-022](./liquid/LIQ-022.md) | `.css.liquid` or `.js.liquid` file — deprecated since 2025                        | 🔴 CRITICAL |
-| [LIQ-023](./liquid/LIQ-023.md) | `\| asset_url` referencing non-existent asset in `/assets/`                       | 🟠 HIGH     |
-| [LIQ-024](./liquid/LIQ-024.md) | `{% liquid %}` tag with missing `assign`                                          | 🟡 MEDIUM   |
-| [LIQ-025](./liquid/LIQ-025.md) | `{{ product.selected_variant }}` instead of `selected_or_first_available_variant` | 🟠 HIGH     |
+| ID                                                                      | Rule                                                                              | Severity    |
+| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------- |
+| [LIQ-001](./liquid/LIQ-001-deprecated-include.md)                       | `{% include %}` deprecated — replace with `{% render %}`                          | 🟠 HIGH     |
+| [LIQ-002](./liquid/LIQ-002-deprecated-img-url.md)                       | `img_url` filter obsolete — replace with `image_url`                              | 🟠 HIGH     |
+| [LIQ-003](./liquid/LIQ-003-incorrect-comparison-operator.md)            | `= 0` instead of `== 0` in `{% if %}` — always evaluates true                     | 🔴 CRITICAL |
+| [LIQ-004](./liquid/LIQ-004-misspelled-closing-tag.md)                   | Misspelled closing tag `{% endiff %}` `{% end for %}`                             | 🔴 CRITICAL |
+| [LIQ-005](./liquid/LIQ-005-assign-in-loop.md)                           | `{% assign %}` inside `{% for %}` loop                                            | 🟡 MEDIUM   |
+| [LIQ-006](./liquid/LIQ-006-unclosed-capture.md)                         | `{% capture %}` without `{% endcapture %}`                                        | 🔴 CRITICAL |
+| [LIQ-007](./liquid/LIQ-007-filter-chain-depth-greater-than-6-levels.md) | Filter chain depth > 6 levels                                                     | 🟡 MEDIUM   |
+| [LIQ-008](./liquid/LIQ-008-content-for-header-missing-or-duplicated.md) | `{{ content_for_header }}` missing or duplicated in layout                        | 🔴 CRITICAL |
+| [LIQ-009](./liquid/LIQ-009-content-for-layout-missing-checkout.md)      | `{{ content_for_layout }}` missing in checkout.liquid                             | 🔴 CRITICAL |
+| [LIQ-010](./liquid/LIQ-010-missing-doctype-layout-none.md)              | `{% layout none %}` without explicit `<!DOCTYPE html>`                            | 🟡 MEDIUM   |
+| [LIQ-011](./liquid/LIQ-011-unclosed-paginate-tag.md)                    | `{% paginate %}` without `{% endpaginate %}`                                      | 🟠 HIGH     |
+| [LIQ-012](./liquid/LIQ-012-unclosed-form-tag-csrf.md)                   | `{% form %}` without `{% endform %}`                                              | 🟠 HIGH     |
+| [LIQ-013](./liquid/LIQ-013-type-safety-upcase-downcase.md)              | `\| upcase` / `\| downcase` on non-string object                                  | 🟡 MEDIUM   |
+| [LIQ-014](./liquid/LIQ-014-redundant-strip-html.md)                     | `\| strip_html` on already plain-text field                                       | 🟢 LOW      |
+| [LIQ-015](./liquid/LIQ-015-render-undefined-variable.md)                | `{% render %}` called with undefined variable as parameter                        | 🟠 HIGH     |
+| [LIQ-016](./liquid/LIQ-016-nested-unless-confusion.md)                  | Nested `{% unless %}` creating cognitive confusion                                | 🟢 LOW      |
+| [LIQ-017](./liquid/LIQ-017-unclosed-tablerow-tag.md)                    | `{% tablerow %}` without `{% endtablerow %}`                                      | 🟠 HIGH     |
+| [LIQ-018](./liquid/LIQ-018-liquid-comment-breakout.md)                  | Liquid comment containing `-->` or `</` sequences                                 | 🟡 MEDIUM   |
+| [LIQ-019](./liquid/LIQ-019-unescaped-variable-in-script.md)             | `\| escape` inside `<script>` tag instead of `\| json`                            | 🔴 CRITICAL |
+| [LIQ-020](./liquid/LIQ-020-missing-json-in-script-tag.md)               | `'{{ value \| json }}'` — json wrapped in extra quotes                            | 🟠 HIGH     |
+| [LIQ-021](./liquid/LIQ-021-deprecated-theme-object.md)                  | Deprecated `theme` Liquid object used                                             | 🟠 HIGH     |
+| [LIQ-022](./liquid/LIQ-022-deprecated-liquid-assets.md)                 | `.css.liquid` or `.js.liquid` file — deprecated since 2025                        | 🔴 CRITICAL |
+| [LIQ-023](./liquid/LIQ-023-missing-assets-via-asset-url.md)             | `\| asset_url` referencing non-existent asset in `/assets/`                       | 🟠 HIGH     |
+| [LIQ-024](./liquid/LIQ-024-missing-assign-in-liquid-block.md)           | `{% liquid %}` tag with missing `assign`                                          | 🟡 MEDIUM   |
+| [LIQ-025](./liquid/LIQ-025-missing-variant-fallback.md)                 | `{{ product.selected_variant }}` instead of `selected_or_first_available_variant` | 🟠 HIGH     |
 
 ---
 
