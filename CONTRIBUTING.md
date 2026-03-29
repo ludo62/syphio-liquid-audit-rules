@@ -11,8 +11,17 @@ Thank you for interest in improving the Shopify Liquid audit ecosystem. To maint
 ## 📂 Structure
 
 - Accessibility rules → `/rules/accessibility/`
-- Logic rules → `/rules/logic/`
+- Checkout rules → `/rules/checkout/`
+- CI/CD rules → `/rules/ci-cd/`
+- GDPR rules → `/rules/gdpr/`
+- Hydrogen rules → `/rules/hydrogen/`
+- Integrations rules → `/rules/integrations/`
+- JavaScript rules → `/rules/javascript/`
+- Liquid rules → `/rules/liquid/`
+- Markets rules → `/rules/markets/`
+- Metafields rules → `/rules/metafields/`
 - Performance rules → `/rules/performance/`
+- Schema rules → `/rules/schema/`
 - Security rules → `/rules/security/`
 - SEO rules → `/rules/seo/`
 
