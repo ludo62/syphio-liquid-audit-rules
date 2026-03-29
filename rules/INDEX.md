@@ -71,38 +71,37 @@ Click any rule ID to read its full specification with Detection Logic, Anti-Patt
 
 ## C2 — Performance & Core Web Vitals `30 rules`
 
-| ID                                    | Rule                                                              | Severity    |
-| ------------------------------------- | ----------------------------------------------------------------- | ----------- |
-| [PERF-001](./performance/PERF-001.md) | `collections.all` in non-paginated context                        | 🔴 CRITICAL |
-| [PERF-002](./performance/PERF-002.md) | `all_products[handle]` — O(n) full catalog scan                   | 🔴 CRITICAL |
-| [PERF-003](./performance/PERF-003.md) | `collections.all` inside `{% for %}` loop                         | 🔴 CRITICAL |
-| [PERF-004](./performance/PERF-004.md) | Hero image missing `fetchpriority="high"`                         | 🟠 HIGH     |
-| [PERF-005](./performance/PERF-005.md) | Hero image with `loading="lazy"` — LCP killer                     | 🔴 CRITICAL |
-| [PERF-006](./performance/PERF-006.md) | `image_url` without `widths` parameter                            | 🟠 HIGH     |
-| [PERF-007](./performance/PERF-007.md) | `<img>` without explicit `width` and `height` attributes          | 🟠 HIGH     |
-| [PERF-008](./performance/PERF-008.md) | `script_tag` filter without `defer`                               | 🟠 HIGH     |
-| [PERF-009](./performance/PERF-009.md) | Inline `<script>` without `defer`/`async` on non-critical path    | 🟠 HIGH     |
-| [PERF-010](./performance/PERF-010.md) | jQuery loaded as global dependency — 87KB blocking                | 🟠 HIGH     |
-| [PERF-011](./performance/PERF-011.md) | `section.settings` accessed inside `{% for %}` loop               | 🟡 MEDIUM   |
-| [PERF-012](./performance/PERF-012.md) | `\| where` filter on array > 100 elements                         | 🟠 HIGH     |
-| [PERF-013](./performance/PERF-013.md) | `\| sort` on `collections.all.products`                           | 🔴 CRITICAL |
-| [PERF-014](./performance/PERF-014.md) | `font_face` without `font_display: 'swap'`                        | 🟠 HIGH     |
-| [PERF-015](./performance/PERF-015.md) | Google Fonts without `&display=swap`                              | 🟠 HIGH     |
-| [PERF-016](./performance/PERF-016.md) | Missing `preconnect` for critical third-party origins             | 🟡 MEDIUM   |
-| [PERF-017](./performance/PERF-017.md) | `dns-prefetch` instead of `preconnect` for same-origin fonts      | 🟢 LOW      |
-| [PERF-018](./performance/PERF-018.md) | `section.index` not used to differentiate above/below fold images | 🟠 HIGH     |
-| [PERF-019](./performance/PERF-019.md) | `{% render %}` in `{% for %}` without `for:` syntax               | 🟡 MEDIUM   |
-| [PERF-020](./performance/PERF-020.md) | CSS loaded via `stylesheet_tag` without `media` attribute         | 🟡 MEDIUM   |
-| [PERF-021](./performance/PERF-021.md) | `window.Shopify.routes.root` absent from AJAX calls               | 🟠 HIGH     |
-| [PERF-022](./performance/PERF-022.md) | Speculation Rules API absent for product page prefetch            | 🟢 LOW      |
-| [PERF-023](./performance/PERF-023.md) | `innerHTML +=` pattern in cart/section JavaScript                 | 🟠 HIGH     |
-| [PERF-024](./performance/PERF-024.md) | `setInterval` without `clearInterval` in Web Component            | 🟠 HIGH     |
-| [PERF-025](./performance/PERF-025.md) | `document.querySelector` instead of `this.querySelector`          | 🟠 HIGH     |
-| [PERF-026](./performance/PERF-026.md) | INP > 200ms — interaction handler blocking main thread            | 🟠 HIGH     |
-| [PERF-027](./performance/PERF-027.md) | `scheduler.yield()` absent in long INP handlers > 50ms            | 🟡 MEDIUM   |
-| [PERF-028](./performance/PERF-028.md) | App scripts loaded on all pages vs template-specific              | 🟠 HIGH     |
-| [PERF-029](./performance/PERF-029.md) | `request.page_type` not used to conditionally load scripts        | 🟡 MEDIUM   |
-| [PERF-030](./performance/PERF-030.md) | AVIF not served — Shopify CDN not leveraged                       | 🟡 MEDIUM   |
+| ID                                                                          | Rule                                                                      | Severity    |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------- |
+| [PERF-001](./performance/PERF-001-collections-all-pagination.md)            | `collections.all` in non-paginated context                                | 🔴 CRITICAL |
+| [PERF-002](./performance/PERF-002-all-products-sequential-scan.md)          | `all_products[handle]` — O(n) full catalog scan                           | 🔴 CRITICAL |
+| [PERF-003](./performance/PERF-003-collections-all-loop-amplification.md)    | `collections.all` inside `{% for %}` loop                                 | 🔴 CRITICAL |
+| [PERF-004](./performance/PERF-004-hero-fetchpriority-high.md)               | Hero image missing `fetchpriority="high"`                                 | 🟠 HIGH     |
+| [PERF-005](./performance/PERF-005-hero-loading-lazy-regression.md)          | Hero image with `loading="lazy"` — LCP killer                             | 🔴 CRITICAL |
+| [PERF-006](./performance/PERF-006-image-url-missing-widths.md)              | `image_url` without `widths` parameter                                    | 🟠 HIGH     |
+| [PERF-007](./performance/PERF-007-img-missing-width.md)                     | `<img>` without explicit `width` and `height` attributes                  | 🟠 HIGH     |
+| [PERF-008](./performance/PERF-008-script-tag-parser-blocking.md)            | `script_tag` filter without `defer`                                       | 🟠 HIGH     |
+| [PERF-009](./performance/PERF-009-inline-script-parser-blocking.md)         | Inline `<script>` without `defer`/`async` on non-critical path            | 🟠 HIGH     |
+| [PERF-010](./performance/PERF-010-jquery-global-dependency.md)              | jQuery loaded as a global dependency                                      | 🟠 HIGH     |
+| [PERF-011](./performance/PERF-011-section-settings-hoisting-inside-loop.md) | `section.settings` accessed inside `{% for %}` loop                       | 🟡 MEDIUM   |
+| [PERF-012](./performance/PERF-012-where-filter-on-large-arrays.md)          | `\| where` on array > 100 elements                                        | 🟠 HIGH     |
+| [PERF-013](./performance/PERF-013-sort-filter-on-large-arrays.md)           | `\| sort` on `collections.all.products`                                   | 🔴 CRITICAL |
+| [PERF-014](./performance/PERF-014-font-face-display-swap.md)                | `font_face` without `font_display: 'swap'`                                | 🟠 HIGH     |
+| [PERF-015](./performance/PERF-015-google-fonts-display-swap.md)             | Google Fonts without `&display=swap`                                      | 🟠 HIGH     |
+| [PERF-016](./performance/PERF-016-missing-preconnect-critical-origins.md)   | Missing `preconnect` for critical third-party origins                     | 🟡 MEDIUM   |
+| [PERF-017](./performance/PERF-017-unscoped-dns-prefetch-font-origins.md)    | `dns-prefetch` instead of `preconnect` for font origins                   | 🟢 LOW      |
+| [PERF-018](./performance/PERF-018-section-index-image-loading-strategy.md)  | `section.index` not used to differentiate above/below-fold images         | 🟠 HIGH     |
+| [PERF-019](./performance/PERF-019-render-inside-for-without-for-syntax.md)  | `{% render %}` inside `{% for %}` without `for:` syntax                   | 🟡 MEDIUM   |
+| [PERF-020](./performance/PERF-020-stylesheet-tag-without-media.md)          | CSS loaded via `stylesheet_tag` without `media` attribute                 | 🟡 MEDIUM   |
+| [PERF-021](./performance/PERF-021-shopify-routes-root-missing-ajax.md)      | `window.Shopify.routes.root` absent from AJAX calls                       | 🟠 HIGH     |
+| [PERF-022](./performance/PERF-022-speculation-rules-product-prefetch.md)    | Speculation Rules API absent for product page prefetch                    | 🟢 LOW      |
+| [PERF-023](./performance/PERF-023-missing-asset-404.md)                     | `innerHTML +=` pattern in cart/section JavaScript                         | 🟠 HIGH     |
+| [PERF-024](./performance/PERF-024-set-interval-without-clear-interval.md)   | `setInterval` without `clearInterval` in Web Component                    | 🟠 HIGH     |
+| [PERF-025](./performance/PERF-025-document-query-selector-web-component.md) | `document.querySelector` instead of `this.querySelector` in Web Component | 🟠 HIGH     |
+| [PERF-027](./performance/PERF-027.md)                                       | `scheduler.yield()` absent in long INP handlers > 50ms                    | 🟡 MEDIUM   |
+| [PERF-028](./performance/PERF-028.md)                                       | App scripts loaded on all pages vs template-specific                      | 🟠 HIGH     |
+| [PERF-029](./performance/PERF-029.md)                                       | `request.page_type` not used to conditionally load scripts                | 🟡 MEDIUM   |
+| [PERF-030](./performance/PERF-030.md)                                       | AVIF not served — Shopify CDN not leveraged                               | 🟡 MEDIUM   |
 
 ---
 
