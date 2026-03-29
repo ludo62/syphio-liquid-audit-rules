@@ -1,8 +1,11 @@
 # LIQ-001 | `{% include %}` deprecated — replace with `{% render %}`
 
 **Category:** Performance
+
 **Severity:** 🟠 HIGH
+
 **Affects:** All templates and sections that reference snippet files via `{% include %}`
+
 **Added:** 2024-01 · **Last updated:** 2026-03
 
 ---
