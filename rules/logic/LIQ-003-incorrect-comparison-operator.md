@@ -1,6 +1,6 @@
 # LIQ-003 | `= 0` instead of `== 0` in `{% if %}` — always true
 
-**Category:** Performance
+**Category:** Merchant Logic
 
 **Severity:** 🔴 CRITICAL
 
