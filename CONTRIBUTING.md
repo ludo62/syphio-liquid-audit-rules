@@ -10,9 +10,10 @@ Thank you for interest in improving the Shopify Liquid audit ecosystem. To maint
 
 ## 📂 Structure
 
+- Accessibility rules → `/rules/accessibility/`
+- Logic rules → `/rules/logic/`
 - Performance rules → `/rules/performance/`
 - Security rules → `/rules/security/`
-- Accessibility rules → `/rules/accessibility/`
 - SEO rules → `/rules/seo/`
 
 ## 🛠️ Definition of Done
